@@ -17,8 +17,8 @@ public class Main {
 
         GameProgress.zipFiles("D://Games/savegames/zip.zip", files);
 
-        GameProgress.deleteFiles("save1.dat");
-        GameProgress.deleteFiles("save2.dat");
-        GameProgress.deleteFiles("save3.dat");
+        GameProgress.deleteFiles("D://Games/savegames/save1.dat");
+        GameProgress.deleteFiles("D://Games/savegames/save2.dat");
+        GameProgress.deleteFiles("D://Games/savegames/save3.dat");
     }
 }

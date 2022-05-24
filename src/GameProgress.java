@@ -38,8 +38,7 @@ public class GameProgress implements Serializable {
     }
 
     public static void zipFiles(String path, List<String> savings) {
-        try {
-            ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(path));
+        try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(path))) {
             for (int i = 0; i < savings.size(); i++) {
                 try (FileInputStream fis = new FileInputStream(savings.get(i))) {
                     ZipEntry ze = new ZipEntry("mysavings" + i);
@@ -52,16 +51,15 @@ public class GameProgress implements Serializable {
                     e.printStackTrace();
                 }
             }
-            zos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    public static void deleteFiles(String fileName) {
+    public static boolean deleteFiles(String fileName) {
         File file = new File(fileName);
         if (!fileName.endsWith(".zip")) {
-            file.delete();
+            return file.delete();
         }
+        return false;
     }
 }
