@@ -55,11 +55,18 @@ public class GameProgress implements Serializable {
             e.printStackTrace();
         }
     }
-    public static boolean deleteFiles(String fileName) {
-        File file = new File(fileName);
-        if (!fileName.endsWith(".zip")) {
-            return file.delete();
+
+    public static boolean deleteFiles(String path) {
+        boolean result = true;
+        File pathName = new File(path);
+        File[] files = pathName.listFiles(x -> !x.getName().endsWith(".zip"));
+        if (files != null) {
+            for (File file: files) {
+                if (!file.delete()) {
+                    result = false;
+                }
+            }
         }
-        return false;
+        return result;
     }
 }

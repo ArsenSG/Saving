@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Main {
+    public static String filePath = "D://Games/savegames/";
     public static void main(String[] args) {
         GameProgress firstGamer = new GameProgress(100, 3, 80, 42.6);
         GameProgress secondGamer = new GameProgress(81, 4, 73, 84.1);
@@ -17,8 +18,7 @@ public class Main {
 
         GameProgress.zipFiles("D://Games/savegames/zip.zip", files);
 
-        GameProgress.deleteFiles("D://Games/savegames/save1.dat");
-        GameProgress.deleteFiles("D://Games/savegames/save2.dat");
-        GameProgress.deleteFiles("D://Games/savegames/save3.dat");
+        GameProgress.deleteFiles("D://Games/savegames");
+
     }
 }
